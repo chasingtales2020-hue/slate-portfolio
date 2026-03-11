@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .project-card:hover img { transform: scale(1.05); transition: all 0.4s ease; }
+    </style>
+</head>
+<body class="bg-zinc-900 text-zinc-100 p-8">
+
+    <header class="max-w-6xl mx-auto mb-16">
+        <h1 class="text-4xl font-bold tracking-tighter">PROJECT SLATE</h1>
+    </header>
+
+    <div id="project-grid" class="max-grid max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        </div>
+
+    <script>
+        // EDIT THIS ARRAY TO UPDATE YOUR SITE
+        const projects = [
+            {
+                title: "Project One",
+                description: "A brief vibe check on what this project is about.",
+                image: "https://via.placeholder.com/600x400",
+                link: "#"
+            },
+            {
+                title: "Project Two",
+                description: "Deep dive into the aesthetic and functionality.",
+                image: "https://via.placeholder.com/600x400",
+                link: "#"
+            }
+        ];
+
+        const grid = document.getElementById('project-grid');
+        
+        grid.innerHTML = projects.map(p => `
+            <div class="project-card group cursor-pointer overflow-hidden rounded-lg bg-zinc-800 border border-zinc-700">
+                <div class="overflow-hidden">
+                    <img src="${p.image}" alt="${p.title}" class="w-full h-64 object-cover opacity-80 group-hover:opacity-100">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">${p.title}</h3>
+                    <p class="text-zinc-400 text-sm mb-4">${p.description}</p>
+                    <a href="${p.link}" class="text-xs uppercase tracking-widest border-b border-zinc-500 pb-1 hover:text-white hover:border-white">View Project</a>
+                </div>
+            </div>
+        `).join('');
+    </script>
+</body>
+</html>
